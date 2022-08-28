@@ -30,6 +30,7 @@ export class SubCategoryComponent implements OnInit {
   card3!: ElementRef<HTMLDivElement>;
 
   datas: any;
+  search: string = '';
 
   constructor(
     private router: Router,
@@ -73,6 +74,17 @@ export class SubCategoryComponent implements OnInit {
 
   next() {
     this.router.navigate(['/content']);
+  }
+
+  modelChange(search: any) {
+    const data = this.datas?.filter((data: any) => {
+      return '';
+      // data.tin.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.name.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.status.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.payment.toLowerCase().startsWith(search.toLowerCase())
+    });
+    this.datas = data;
   }
 
   limit(title: any, limit = 14) {

@@ -24,6 +24,14 @@
         </div>
     </div>
 
+    <div class="header2">
+        <div class="search_icon_p">
+            <form class="search-form">
+                <input [ngModel]="search" (ngModelChange)="modelChange($event)" name="search" type="text" placeholder="Search..." class="input">
+            </form>
+        </div>
+    </div>
+
     <div class="card-p" #card>
         <div class="card" (click)="next()">
             <div>

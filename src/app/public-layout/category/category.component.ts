@@ -31,6 +31,7 @@ export class CategoryComponent implements OnInit {
   card3!: ElementRef<HTMLDivElement>;
 
   datas: any;
+  search: string = '';
 
   constructor(
     private router: Router,
@@ -68,6 +69,17 @@ export class CategoryComponent implements OnInit {
 
   next() {
     this.router.navigate(['/sub-category']);
+  }
+
+  modelChange(search: any) {
+    const data = this.datas?.filter((data: any) => {
+      return '';
+      // data.tin.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.name.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.status.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.payment.toLowerCase().startsWith(search.toLowerCase())
+    });
+    this.datas = data;
   }
 
   listData() {

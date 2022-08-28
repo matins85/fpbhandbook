@@ -10,6 +10,9 @@ import { ToggleNavService } from '../sharedService/toggle-nav.service';
   styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
+  search: string = '';
+  datas: any;
+
   constructor(
     private router: Router,
     private service: ToggleNavService,
@@ -46,6 +49,17 @@ export class ContentComponent implements OnInit {
       }
       return title;
     }
+  }
+
+  modelChange(search: any) {
+    const data = this.datas?.filter((data: any) => {
+      return '';
+      // data.tin.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.name.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.status.toLowerCase().startsWith(search.toLowerCase()) ||
+      // data.payment.toLowerCase().startsWith(search.toLowerCase())
+    });
+    this.datas = data;
   }
 
   ngOnInit(): void {}

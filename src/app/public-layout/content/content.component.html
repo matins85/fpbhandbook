@@ -14,6 +14,21 @@
         </div>
     </div>
 
+    <div class="chapter">
+        <div class="chapter-pp">
+            <span class="material-icons-round">arrow_back</span>
+            {{ limit('Chapter 0111') }}
+        </div>
+    </div>
+
+    <div class="header2">
+        <div class="search_icon_p">
+            <form class="search-form">
+                <input [ngModel]="search" (ngModelChange)="modelChange($event)" name="search" type="text" placeholder="Search..." class="input">
+            </form>
+        </div>
+    </div>
+
     <div class="title">Section A: Polytechnic Administration</div>
 
     <div class="body">
