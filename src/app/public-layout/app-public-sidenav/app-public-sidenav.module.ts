@@ -29,11 +29,17 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 // components
 import { AppPublicSidenavComponent } from './app-public-sidenav.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
+import { CategoryComponent } from '../category/category.component';
+import { ContentComponent } from '../content/content.component';
+import { SubCategoryComponent } from '../sub-category/sub-category.component';
 @NgModule({
   declarations: [
     // components  // components which has route and chart comes here....while components which do not goes to public-shared-module
     AppPublicSidenavComponent,
     DashboardComponent,
+    CategoryComponent,
+    SubCategoryComponent,
+    ContentComponent,
   ],
   imports: [
     CommonModule,

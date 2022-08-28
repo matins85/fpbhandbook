@@ -55,12 +55,10 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from 'src/environments/environment';
 import { IosInstallComponent } from './public-layout/ios-install/ios-install.component';
-import { CategoryComponent } from './public-layout/category/category.component';
-import { SubCategoryComponent } from './public-layout/sub-category/sub-category.component';
-import { ContentComponent } from './public-layout/content/content.component';
+
 
 @NgModule({
-  declarations: [AppComponent, IosInstallComponent, CategoryComponent, SubCategoryComponent, ContentComponent],
+  declarations: [AppComponent, IosInstallComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

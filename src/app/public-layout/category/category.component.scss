@@ -1,0 +1,121 @@
+.wrapper {
+  max-height: 100%;
+  padding: 20px;
+
+  .back {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .back button {
+    background: #2c1654;
+    color: #ffffff;
+  }
+
+  .back div {
+    margin-left: 2rem;
+    color: #2c1654;
+  }
+
+  .table {
+    text-transform: capitalize;
+    font: normal normal normal 25px/30px Inter;
+    font-weight: 500;
+  }
+
+  .link_first_container {
+    margin-top: 2rem;
+    padding: 15px;
+    background: rgba(44, 22, 84, 0.3);
+    border-radius: 10px;
+    max-width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .point_hand_img {
+    background: #2c1654;
+    border-radius: 10px;
+    width: auto;
+    padding: 25px 10px 25px 10px;
+    width: fit-content;
+  }
+
+  .multiple_pay_p {
+    margin-right: 10px;
+  }
+
+  .multiple_pay {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  .multiple_text {
+    flex-direction: column;
+    margin-left: 1rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .multiple_first {
+    font: normal normal normal 25px/30px Inter;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    color: black;
+    text-transform: capitalize;
+  }
+
+  .multiple_second {
+    font: normal normal normal 13px/19px Inter;
+    font-weight: 300;
+    line-height: 8px;
+    color: black;
+    margin-top: 10px;
+    margin-bottom: 15px;
+  }
+
+  .multiple_third {
+    background: rgba(44, 22, 84, 0.3);
+    border-radius: 5px;
+    font: normal normal normal 14px/19px JetBrains Mono;
+    color: #ffffff;
+    text-align: center;
+    width: fit-content;
+  }
+
+  .multiple_third button {
+    text-transform: capitalize;
+  }
+
+  .real_time {
+    text-align: right;
+  }
+
+  .card-p {
+    margin-top: 2rem;
+  }
+
+  .card {
+    margin-bottom: 20px;
+    background: #ffffff;
+    box-shadow: 0px 20px 100px rgba(0, 0, 0, 0.13);
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    font: normal normal normal 14px/19px JetBrains Mono;
+    font-weight: 500;
+    vertical-align: middle;
+  }
+
+  .card div button {
+    color: #2c1654;
+    vertical-align: middle;
+  }
+}

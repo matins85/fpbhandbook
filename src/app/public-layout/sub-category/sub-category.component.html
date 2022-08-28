@@ -1,1 +1,57 @@
-<p>sub-category works!</p>
+<div class="wrapper">
+    <div class="back">
+        <button mat-mini-fab (click)="back()">
+            <i class="fa fa-long-arrow-left fa-lg" aria-hidden="true"></i>
+        </button>
+        <div class="table">Section A: Polytechnic Administration</div>
+    </div>
+
+    <div class="link_first_container">
+        <div class="multiple_pay_p">
+            <div class="multiple_pay" #card2>
+                <div class="point_hand_img">
+                    <img src="assets/images/hand.png" alt="">
+                </div>
+                <div class="multiple_text">
+                    <div class="multiple_first">FPBSIH</div>
+                    <div class="multiple_second">{{ limit('Section A: Polytechnic Administration')}}</div>
+                    <div class="multiple_third"><button mat-button>HANDBOOK</button></div>
+                </div>
+            </div>
+        </div>
+        <div class="real_time" #card3>
+            <img src="assets/images/undraw_real_time_collaboration_c62i1.png" class="real_time_img" alt="">
+        </div>
+    </div>
+
+    <div class="card-p" #card>
+        <div class="card">
+            <div>
+                <button mat-icon-button><span class="material-icons-round">format_indent_increase</span></button>
+            </div>
+            <div>Section A: Polytechnic Administration</div>
+        </div>
+
+        <div class="card">
+            <div>
+                <button mat-icon-button><span class="material-icons-round">format_list_bulleted</span></button>
+            </div>
+            <div>Section A: Polytechnic Administration</div>
+        </div>
+
+        <div class="card">
+            <div>
+                <button mat-icon-button><i class="fa fa-table fa-lg" aria-hidden="true"></i></button>
+            </div>
+            <div>Section A: Polytechnic Administration</div>
+        </div>
+
+        <div class="card">
+            <div>
+                <button mat-icon-button><span class="material-icons-round">reorder</span></button>
+            </div>
+            <div>Section A: Polytechnic Administration</div>
+        </div>
+    </div>
+
+</div>

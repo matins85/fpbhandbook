@@ -6,13 +6,10 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 // Gsap module
-import { MatSnackBar } from '@angular/material/snack-bar';
-import { DomSanitizer } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
-import { AuthService } from 'src/app/services/auth.service';
 import { HttpService } from 'src/app/services/http.service';
 import { BaseUrl } from 'src/environments/environment';
 import { ToggleNavService } from '../sharedService/toggle-nav.service';
@@ -41,7 +38,6 @@ export class DashboardComponent implements OnInit {
   clickEventSubscription?: Subscription;
 
   constructor(
-    public sanitizer: DomSanitizer,
     private router: Router,
     private service: ToggleNavService,
     private httpService: HttpService
@@ -78,28 +74,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  limit(title: any, limit = 14) {
-    if (title === undefined) {
-      return '';
-    } else {
-      const newTitle: any = [];
-      if (title.length > limit) {
-        title.split('').reduce((acc: any, cur: any) => {
-          if (acc + cur.length <= limit) {
-            newTitle.push(cur);
-          }
-          return acc + cur.length;
-        }, 0);
-        return `${newTitle.join('')}...`;
-      }
-      return title;
-    }
-  }
-
   listData() {
     this.httpService.getSingleNoAuth(BaseUrl.login).subscribe((data: any) => {
       this.service.setMessage(data);
     });
+  }
+
+  next() {
+    this.router.navigate(['/category']);
   }
 
   ngOnInit(): void {
