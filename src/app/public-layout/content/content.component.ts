@@ -30,5 +30,23 @@ export class ContentComponent implements OnInit {
     this.router.navigate(['/content']);
   }
 
+  limit(title: any, limit = 11) {
+    if (title === undefined) {
+      return '';
+    } else {
+      const newTitle: any = [];
+      if (title.length > limit) {
+        title.split('').reduce((acc: any, cur: any) => {
+          if (acc + cur.length <= limit) {
+            newTitle.push(cur);
+          }
+          return acc + cur.length;
+        }, 0);
+        return `${newTitle.join('')}...`;
+      }
+      return title;
+    }
+  }
+
   ngOnInit(): void {}
 }

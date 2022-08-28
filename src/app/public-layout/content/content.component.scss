@@ -23,4 +23,33 @@
     font: normal normal normal 25px/30px Inter;
     font-weight: 500;
   }
+
+  .chapter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2rem;
+  }
+
+  .chapter-p {
+    font: normal normal normal 15px/19px Inter;
+    font-weight: 300;
+    color: #2c1654;
+  }
+
+  .chapter-pp {
+    font: normal normal normal 15px/19px Inter;
+    font-weight: 600;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #2c1654;
+  }
+
+  .title {
+    margin-top: 2rem;
+    font: normal normal normal 25px/35px Inter;
+    font-weight: 500;
+    color: #2c1654;
+  }
 }
