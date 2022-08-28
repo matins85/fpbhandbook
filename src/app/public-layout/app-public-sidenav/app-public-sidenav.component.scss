@@ -6,8 +6,7 @@ mat-sidenav-container {
 }
 
 .main {
-  height: 100%;
-  background: #F8F4FF;;
+  background: #F8F4FF;
 }
 
 .sidenav {
@@ -29,7 +28,7 @@ mat-sidenav-container {
   background: #ffffff 10% 0% no-repeat padding-box;
   box-shadow: 0px 3px 6px #00000029;
   transition: all 0.2s ease-in-out;
-  color: black;
+  color: 2c1654;
   margin-right: 10px;
 }
 
@@ -37,19 +36,6 @@ mat-sidenav-container {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.button2 {
-  position: fixed;
-  bottom: 1em;
-  right: 1em;
-  z-index: 1000;
-  font-size: 20px;
-  text-align: center;
-  border-radius: 50%;
-  background: #cb8a03 0% 0% no-repeat padding-box;
-  color: $white;
-  box-shadow: 0px 3px 6px #00000029;
 }
 
 .show-scrollTop {

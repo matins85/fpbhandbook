@@ -1,5 +1,4 @@
 .wrapper {
-  max-height: 100%;
   padding: 20px;
 
   .back {
@@ -51,5 +50,43 @@
     font: normal normal normal 25px/35px Inter;
     font-weight: 500;
     color: #2c1654;
+  }
+
+  .body {
+    margin-top: 2rem;
+  }
+
+  .paragraph {
+    margin-bottom: 20px;
+  }
+
+  .para-title {
+    font: normal normal normal 19px/21px Inter;
+    margin-bottom: 9px;
+    font-weight: 500;
+  }
+
+  .para-sub-title {
+    font: normal normal normal 18px/21px Inter;
+    margin-bottom: 9px;
+    margin-left: 5px;
+    font-weight: 500;
+  }
+
+  .para-body {
+    font: normal normal normal 17px/21px Inter;
+    margin-left: 5px;
+  }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .capitalize {
+    text-transform: uppercase;
+  }
+
+  .italic {
+    font-style: italic;
   }
 }

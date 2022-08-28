@@ -1,5 +1,4 @@
 .wrapper {
-  max-height: 100%;
   padding: 20px;
 
   .back {
@@ -103,7 +102,7 @@
   .card {
     margin-bottom: 20px;
     background: #ffffff;
-    box-shadow: 0px 20px 100px rgba(0, 0, 0, 0.13);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
     border-radius: 16px;
     padding: 15px;
     display: flex;
@@ -125,7 +124,7 @@
   }
 
   .tablee {
-    background: #DBA976;
+    background: #dba976;
     margin-right: 10px;
   }
 
