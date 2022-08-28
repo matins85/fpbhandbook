@@ -1,0 +1,26 @@
+.wrapper {
+  max-height: 100%;
+  padding: 20px;
+
+  .back {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .back button {
+    background: #2c1654;
+    color: #ffffff;
+  }
+
+  .back div {
+    margin-left: 2rem;
+    color: #2c1654;
+  }
+
+  .table {
+    text-transform: capitalize;
+    font: normal normal normal 25px/30px Inter;
+    font-weight: 500;
+  }
+}

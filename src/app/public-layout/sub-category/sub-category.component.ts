@@ -71,6 +71,10 @@ export class SubCategoryComponent implements OnInit {
     this.router.navigate(['/category']);
   }
 
+  next() {
+    this.router.navigate(['/content']);
+  }
+
   limit(title: any, limit = 14) {
     if (title === undefined) {
       return '';
