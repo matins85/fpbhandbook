@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.service';
 import { BaseUrl } from 'src/environments/environment';
@@ -19,7 +20,8 @@ export class CategoryComponent implements OnInit {
   constructor(
     private router: Router,
     private service: ToggleNavService,
-    private httpService: HttpService
+    private httpService: HttpService,
+    private snackBar: MatSnackBar
   ) {
     if (!this.service.getMessage()) {
       this.listData();
@@ -40,7 +42,7 @@ export class CategoryComponent implements OnInit {
 
   modelChange(search: any) {
     const data = this.searchData?.filter((data: any) => {
-      return data?.chapter.toLowerCase().startsWith(search.toLowerCase());
+      return data?.chapter.toLowerCase().includes(search.toLowerCase());
       // data.name.toLowerCase().startsWith(search.toLowerCase()) ||
     });
     this.datas = data;
@@ -60,6 +62,12 @@ export class CategoryComponent implements OnInit {
         },
         (err) => {
           this.loading = false;
+          this.snackBar.open('Please refresh page', 'x', {
+            duration: 3000,
+            panelClass: 'warning',
+            horizontalPosition: 'center',
+            verticalPosition: 'top',
+          });
         }
       );
     }

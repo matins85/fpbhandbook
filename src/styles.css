@@ -10,3 +10,8 @@ body {
   margin: 0;
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
+
+.warning {
+  color: orange;
+  background: #2c1654;
+}

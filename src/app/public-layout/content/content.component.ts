@@ -25,13 +25,12 @@ export class ContentComponent implements OnInit {
         let table = this.datas?.content?.map((name: any) => {
           return name?.list_table_header;
         });
-
-        if (table[0] != []) {
-          let table_body: any = table[0]?.map((name: any) => {
+        if (table[0]?.length !== 0) {
+          let table_body: any[] = table[0]?.map((name: any) => {
             return name?.table_body;
           });
-          if (table_body != 0) {
-            let table_body2: any = table_body[0]?.map(
+          if (table_body !== [] || table_body !== undefined) {
+            let table_body2: any[] = table_body[0]?.map(
               (name3: any, index2: number) => {
                 return table_body.map((name4: any) => {
                   return name4[index2];
@@ -43,12 +42,12 @@ export class ContentComponent implements OnInit {
           }
         }
         //
-        if (table[0] == [] && table[1] != []) {
-          let table_body: any = table[1]?.map((name: any) => {
+        if (table[0]?.length == 0 && table[1]?.length > 0) {
+          let table_body: any[] = table[1]?.map((name: any) => {
             return name?.table_body;
           });
-          if (table_body.length > 0) {
-            let table_body2: any = table_body[0]?.map(
+          if (table_body !== [] || table_body !== undefined) {
+            let table_body2: any[] = table_body[0]?.map(
               (name3: any, index2: number) => {
                 return table_body.map((name4: any) => {
                   return name4[index2];
@@ -60,12 +59,16 @@ export class ContentComponent implements OnInit {
           }
         }
         //
-        if (table[0] == [] && table[1] == [] && table[2] != []) {
-          let table_body: any = table[2]?.map((name: any) => {
+        if (
+          table[0]?.length == 0 &&
+          table[1]?.length == 0 &&
+          table[2]?.length > 0
+        ) {
+          let table_body: any[] = table[2]?.map((name: any) => {
             return name?.table_body;
           });
-          if (table_body.length > 0) {
-            let table_body2: any = table_body[0]?.map(
+          if (table_body !== [] || table_body !== undefined) {
+            let table_body2: any[] = table_body[0]?.map(
               (name3: any, index2: number) => {
                 return table_body.map((name4: any) => {
                   return name4[index2];

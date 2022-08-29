@@ -81,7 +81,7 @@ export class SubCategoryComponent implements OnInit {
 
   modelChange2(search: any) {
     const data = this.searchData?.sub_category.filter((data: any) => {
-      return data?.name.toLowerCase().startsWith(search.toLowerCase());
+      return data?.name.toLowerCase().includes(search.toLowerCase());
     });
     this.datas = data;
   }
