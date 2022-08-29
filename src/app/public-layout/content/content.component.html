@@ -21,14 +21,6 @@
         </div>
     </div>
 
-    <!-- <div class="header2">
-        <div class="search_icon_p">
-            <form class="search-form">
-                <input [ngModel]="search" (ngModelChange)="modelChange($event)" name="search" type="text" placeholder="Search..." class="input">
-            </form>
-        </div>
-    </div> -->
-
     <div class="title" [class.bold]="datas.is_bold == true" [class.capitalize]="datas.is_capital_letter == true" [class.italic]="datas.is_italic == true">{{ datas?.name }}</div>
 
     <div
@@ -36,8 +28,8 @@
         <!-- paragraph -->
         <div class="body" *ngIf="data.is_paragraph">
             <div class="paragraph">
-                <div class="para-title">{{ data?.title }}</div>
-                <div class="para-sub-title">{{ data?.sub_title }}</div>
+                <div class="para-title" [class.capitalize]="data.is_capital_letter == true" [class.italic]="data.is_italic == true" [class.center]="data.is_center == true" [class.bold]="datas.is_bold == true">{{ data?.title }}</div>
+                <div class="para-sub-title" [class.capitalize]="data.is_capital_letter == true" [class.italic]="data.is_italic == true" [class.center]="data.is_center == true" [class.bold]="datas.is_bold == true">{{ data?.sub_title }}</div>
                 <div class="para-body">{{ data?.body }}</div>
             </div>
         </div>
@@ -45,23 +37,31 @@
         <!-- list -->
         <div class="body" *ngIf="data.is_list">
             <div class="list">
-                <div class="para-title">{{ data?.title }}</div>
-                <div class="para-sub-title">{{ data?.sub_title }}</div>
+                <div class="para-title" [class.capitalize]="data.is_capital_letter == true" 
+                [class.italic]="data.is_italic == true" [class.center]="data.is_center == true"
+                [class.bold]="datas.is_bold == true">{{ data?.title }}</div>
+                <div class="para-sub-title" [class.capitalize]="data.is_capital_letter == true" 
+                [class.italic]="data.is_italic == true" [class.center]="data.is_center == true"
+                [class.bold]="datas.is_bold == true">{{ data?.sub_title }}</div>
                 <div class="para-body">{{ data?.body }}</div>
                 <div *ngIf="!data?.list_contents[0].is_border;">
-                    <div *ngFor="let l of data?.list_contents">
+                    <div *ngFor="let l of data?.list_contents;">
                         <div class="list-content">
                             <div class="list-number">{{ l?.number }}</div>
-                            <div class="list-number-content">{{ l?.name }}</div>
+                            <div class="list-number-content" [class.capitalize]="l.is_capital_letter == true" 
+                            [class.italic]="l.is_italic == true" 
+                            [class.center]="l.is_center == true"
+                            [class.bold]="l.is_bold == true">{{ l?.name }}</div>
                         </div>
                     </div>
                 </div>
                 <!--  -->
                 <div *ngIf="data?.list_contents[0].is_border;">
                     <div class="list-content2">
-                        <div *ngFor="let l of data?.list_contents">
+                        <div *ngFor="let l of data?.list_contents;">
                             <div class="list-number">{{ l?.number }}</div>
-                            <div class="list-number-content">{{ l?.name }}</div>
+                            <div class="list-number-content" [class.capitalize]="l.is_capital_letter == true" [class.italic]="l.is_italic == true" [class.center]="l.is_center == true"
+                            [class.bold]="l.is_bold == true">{{ l?.name }}</div>
                         </div>
                     </div>
                 </div>
@@ -71,11 +71,13 @@
         <!-- sub content -->
         <div class="body" *ngIf="data.is_another_content">
             <div class="paragraph">
-                <div class="para-title">{{ data?.title }}</div>
-                <div class="para-sub-title">{{ data?.sub_title }}</div>
+                <div class="para-title" [class.capitalize]="data.is_capital_letter == true" [class.italic]="data.is_italic == true" [class.center]="data.is_center == true">{{ data?.title }}</div>
+                <div class="para-sub-title" [class.capitalize]="data.is_capital_letter == true" [class.italic]="data.is_italic == true" [class.center]="data.is_center == true">{{ data?.sub_title }}</div>
                 <div class="para-body">{{ data?.body }}</div>
                 <div class="sub-sub-content" *ngFor="let sub of data?.list_sub_content">
-                    <div class="sub-sub-title">{{ sub?.name }}</div>
+                    <div class="sub-sub-title" [class.capitalize]="sub.is_capital_letter == true" 
+                    [class.italic]="sub.is_italic == true"
+                    [class.bold]="sub.is_bold == true">{{ sub?.name }}</div>
                     <div class="list-content">
                         <div class="list-number">{{ sub?.number }}</div>
                         <div class="list-number-content">{{ sub?.body }}</div>
@@ -94,32 +96,14 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th *ngFor="let th of data?.list_table_header;">{{ th?.name }}</th>
+                                <th class="align-middle text-center" *ngFor="let th of data?.list_table_header;">{{ th?.name }}</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr *ngFor="let thh of data?.list_table_header[0].table_body;">
-                                <th *ngFor="let td of data?.list_table_header.table_body;">{{ td?.name }}</th>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>fewfew</th>
-                                <th>fewfew</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <th><div>fewfew</div></th>
-                                <th><div>fewfew</div></th>
-                            </tr>
-                            <tr>
-                                <th><div>fewfew</div></th>
-                                <th><div>fewfew</div></th>
+                            <tr *ngFor="let thh of table;">
+                                <td class="align-middle" *ngFor="let td of thh;">
+                                    {{ td?.name }}
+                                </td>
                             </tr>
                         </tbody>
                     </table>

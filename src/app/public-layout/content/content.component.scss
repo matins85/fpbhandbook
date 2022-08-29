@@ -3,32 +3,6 @@
 .wrapper {
   padding: 20px;
 
-  .header2 {
-    background: none;
-    margin-top: 1.5rem;
-
-    .search-form {
-      vertical-align: top;
-    }
-
-    input[type="text"] {
-      background: #ffffff;
-      border: 1px solid #2c1654;
-      box-sizing: border-box;
-      height: 40px;
-      width: 100%;
-      font: normal normal normal 15px/21px JetBrains Mono;
-      letter-spacing: 0px;
-      color: #2c1654;
-      padding-left: 15px;
-      border-radius: 30px;
-    }
-
-    [type="text"]:focus {
-      outline: none;
-    }
-  }
-
   .back {
     display: flex;
     justify-content: left;

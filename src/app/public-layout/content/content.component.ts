@@ -9,19 +9,74 @@ import { ToggleNavService } from '../sharedService/toggle-nav.service';
   styleUrls: ['./content.component.scss'],
 })
 export class ContentComponent implements OnInit {
-  search: string = '';
   datas: any;
-  searchData: any;
   previousData: any;
+  table: any;
 
   constructor(private router: Router, private service: ToggleNavService) {
     if (this.service.getSubMessage() == undefined) {
       this.router.navigate(['/category']);
     } else {
       this.datas = this.service.getContentMessage();
-      this.searchData = this.service.getSubMessage();
       this.previousData = this.service.getSubMessage();
       console.log(this.datas);
+
+      if (this.datas?.content.length > 0) {
+        let table = this.datas?.content?.map((name: any) => {
+          return name?.list_table_header;
+        });
+
+        if (table[0] != []) {
+          let table_body: any = table[0]?.map((name: any) => {
+            return name?.table_body;
+          });
+          if (table_body != 0) {
+            let table_body2: any = table_body[0]?.map(
+              (name3: any, index2: number) => {
+                return table_body.map((name4: any) => {
+                  return name4[index2];
+                });
+              }
+            );
+            this.table = table_body2;
+            console.log(table_body2);
+          }
+        }
+        //
+        if (table[0] == [] && table[1] != []) {
+          let table_body: any = table[1]?.map((name: any) => {
+            return name?.table_body;
+          });
+          if (table_body.length > 0) {
+            let table_body2: any = table_body[0]?.map(
+              (name3: any, index2: number) => {
+                return table_body.map((name4: any) => {
+                  return name4[index2];
+                });
+              }
+            );
+            this.table = table_body2;
+            console.log(table_body2);
+          }
+        }
+        //
+        if (table[0] == [] && table[1] == [] && table[2] != []) {
+          let table_body: any = table[2]?.map((name: any) => {
+            return name?.table_body;
+          });
+          if (table_body.length > 0) {
+            let table_body2: any = table_body[0]?.map(
+              (name3: any, index2: number) => {
+                return table_body.map((name4: any) => {
+                  return name4[index2];
+                });
+              }
+            );
+            this.table = table_body2;
+            console.log(table_body2);
+          }
+        }
+      }
     }
   }
 
@@ -50,17 +105,6 @@ export class ContentComponent implements OnInit {
       }
       return title;
     }
-  }
-
-  modelChange(search: any) {
-    const data = this.datas?.filter((data: any) => {
-      return '';
-      // data.tin.toLowerCase().startsWith(search.toLowerCase()) ||
-      // data.name.toLowerCase().startsWith(search.toLowerCase()) ||
-      // data.status.toLowerCase().startsWith(search.toLowerCase()) ||
-      // data.payment.toLowerCase().startsWith(search.toLowerCase())
-    });
-    this.datas = data;
   }
 
   ngOnInit(): void {}
