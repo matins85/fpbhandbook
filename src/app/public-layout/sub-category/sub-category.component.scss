@@ -164,4 +164,20 @@
       outline: none;
     }
   }
+
+  .bold {
+    font-weight: 600;
+  }
+
+  .capitalize {
+    text-transform: uppercase;
+  }
+
+  .italic {
+    font-style: italic;
+  }
+
+  .center {
+    text-align: center;
+  }
 }

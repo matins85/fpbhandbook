@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpService } from 'src/app/services/http.service';
 import { ToggleNavService } from '../sharedService/toggle-nav.service';
 
 @Component({
@@ -12,25 +11,27 @@ import { ToggleNavService } from '../sharedService/toggle-nav.service';
 export class ContentComponent implements OnInit {
   search: string = '';
   datas: any;
+  searchData: any;
+  previousData: any;
 
-  constructor(
-    private router: Router,
-    private service: ToggleNavService,
-    private httpService: HttpService
-  ) {
-    // if (this.service.getMessage() == undefined) {
-    //   this.router.navigate(['/']);
-    // } else {
-    //   this.datas = this.service.getMessage();
-    // }
+  constructor(private router: Router, private service: ToggleNavService) {
+    if (this.service.getSubMessage() == undefined) {
+      this.router.navigate(['/category']);
+    } else {
+      this.datas = this.service.getContentMessage();
+      this.searchData = this.service.getSubMessage();
+      this.previousData = this.service.getSubMessage();
+      console.log(this.datas);
+    }
   }
 
   back() {
+    this.service.setSubMessage(this.previousData);
     this.router.navigate(['/sub-category']);
   }
 
   next() {
-    this.router.navigate(['/content']);
+    // this.router.navigate(['/content']);
   }
 
   limit(title: any, limit = 11) {

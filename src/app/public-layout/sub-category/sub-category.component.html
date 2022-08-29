@@ -3,7 +3,8 @@
         <button mat-icon-button (click)="back()">
             <i class="fa fa-long-arrow-left fa-lg" aria-hidden="true"></i>
         </button>
-        <div class="table">Section A: Polytechnic Administration</div>
+        <div class="table" [class.bold]="datas2.is_bold == true" [class.capitalize]="datas2.is_capital_letter == true"
+        [class.italic]="datas2.is_italic == true">{{ datas2?.chapter }}</div>
     </div>
 
     <div class="link_first_container">
@@ -14,7 +15,7 @@
                 </div>
                 <div class="multiple_text">
                     <div class="multiple_first">FPBSIH</div>
-                    <div class="multiple_second">{{ limit('Section A: Polytechnic Administration')}}</div>
+                    <div class="multiple_second">{{ limit(datas2?.chapter)}}</div>
                     <div class="multiple_third"><button mat-button>HANDBOOK</button></div>
                 </div>
             </div>
@@ -27,22 +28,25 @@
     <div class="header2">
         <div class="search_icon_p">
             <form class="search-form">
-                <input [ngModel]="search" (ngModelChange)="modelChange($event)" name="search" type="text" placeholder="Search..." class="input">
+                <input [ngModel]="search2" (ngModelChange)="modelChange2($event)" name="search2" type="text" placeholder="Search..." class="input">
             </form>
         </div>
     </div>
 
     <div class="card-p" #card>
-        <div class="card" (click)="next()">
-            <div>
-                <button mat-icon-button class="list"><span class="material-icons-round">format_indent_increase</span></button>
+        <div>
+            <div class="card" *ngFor="let data of datas.sub_category|| datas;" (click)="next(data)">
+                <div>
+                    <button mat-icon-button class="tablee"><span class="material-icons-round">format_indent_increase</span></button>
+                </div>
+                <div [class.bold]="data.is_bold == true" [class.capitalize]="data.is_capital_letter == true"
+                [class.italic]="data.is_italic == true">{{ data?.name }}</div>
             </div>
-            <div>Section A: Polytechnic Administration</div>
         </div>
-
+        <!-- 
         <div class="card" (click)="next()">
             <div>
-                <button mat-icon-button class="tablee"><span class="material-icons-round">format_list_bulleted</span></button>
+                <button mat-icon-button class="list"><span class="material-icons-round">format_list_bulleted</span></button>
             </div>
             <div>Section A: Polytechnic Administration</div>
         </div>
@@ -59,7 +63,7 @@
                 <button mat-icon-button class="para"><span class="material-icons-round">reorder</span></button>
             </div>
             <div>Section A: Polytechnic Administration</div>
-        </div>
+        </div> -->
     </div>
 
 </div>

@@ -6,10 +6,9 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpService } from 'src/app/services/http.service';
-import { ToggleNavService } from '../sharedService/toggle-nav.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ToggleNavService } from '../sharedService/toggle-nav.service';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -30,18 +29,19 @@ export class SubCategoryComponent implements OnInit {
   card3!: ElementRef<HTMLDivElement>;
 
   datas: any;
-  search: string = '';
+  datas2: any;
+  searchData: any;
+  search2: string = '';
 
-  constructor(
-    private router: Router,
-    private service: ToggleNavService,
-    private httpService: HttpService
-  ) {
-    // if (this.service.getMessage() == undefined) {
-    //   this.router.navigate(['/']);
-    // } else {
-    //   this.datas = this.service.getMessage();
-    // }
+  constructor(private router: Router, private service: ToggleNavService) {
+    if (this.service.getSubMessage() == undefined) {
+      this.router.navigate(['/category']);
+    } else {
+      this.datas = this.service.getSubMessage();
+      this.datas2 = this.service.getSubMessage();
+      this.searchData = this.service.getSubMessage();
+      console.log(this.datas);
+    }
   }
 
   initAnimations(): void {
@@ -69,20 +69,19 @@ export class SubCategoryComponent implements OnInit {
   }
 
   back() {
+    this.service.setSubMessage(this.datas);
     this.router.navigate(['/category']);
   }
 
-  next() {
+  next(data: any) {
+    this.service.setSubMessage(this.searchData);
+    this.service.setContentMessage(data);
     this.router.navigate(['/content']);
   }
 
-  modelChange(search: any) {
-    const data = this.datas?.filter((data: any) => {
-      return '';
-      // data.tin.toLowerCase().startsWith(search.toLowerCase()) ||
-      // data.name.toLowerCase().startsWith(search.toLowerCase()) ||
-      // data.status.toLowerCase().startsWith(search.toLowerCase()) ||
-      // data.payment.toLowerCase().startsWith(search.toLowerCase())
+  modelChange2(search: any) {
+    const data = this.searchData?.sub_category.filter((data: any) => {
+      return data?.name.toLowerCase().startsWith(search.toLowerCase());
     });
     this.datas = data;
   }

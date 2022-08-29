@@ -75,9 +75,13 @@ export class DashboardComponent implements OnInit {
   }
 
   listData() {
-    this.httpService.getSingleNoAuth(BaseUrl.login).subscribe((data: any) => {
-      this.service.setMessage(data);
-    });
+    if (!this.service.getMessage()) {
+      this.httpService.getSingleNoAuth(BaseUrl.handbook).subscribe((data: any) => {
+        this.service.setMessage(data);
+        console.log(data);
+      });
+    } else {
+    }
   }
 
   next() {

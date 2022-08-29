@@ -3,7 +3,7 @@
         <button mat-icon-button (click)="back()">
             <span class="material-icons-round">clear</span>
         </button>
-        <div class="table">Section A: Polytechnic Administration</div>
+        <div class="table" [class.bold]="datas.is_bold == true" [class.capitalize]="datas.is_capital_letter == true" [class.italic]="datas.is_italic == true">{{ datas?.name }}</div>
     </div>
 
     <div class="chapter">
@@ -21,161 +21,112 @@
         </div>
     </div>
 
-    <div class="header2">
+    <!-- <div class="header2">
         <div class="search_icon_p">
             <form class="search-form">
                 <input [ngModel]="search" (ngModelChange)="modelChange($event)" name="search" type="text" placeholder="Search..." class="input">
             </form>
         </div>
-    </div>
+    </div> -->
 
-    <div class="title">Section A: Polytechnic Administration</div>
+    <div class="title" [class.bold]="datas.is_bold == true" [class.capitalize]="datas.is_capital_letter == true" [class.italic]="datas.is_italic == true">{{ datas?.name }}</div>
 
-    <!-- paragraph -->
-
-    <div class="body">
-        <div class="paragraph">
-            <div class="para-title">We wish to welcome you to the Federal
-            </div>
-            <div class="para-sub-title">We wish to welcome you to the</div>
-            <div class="para-body">
-                We wish to welcome you to the Federal Polytechnic, 
-                                Bida. We are aware that for your happiness and success as
-                                 students here, you should be well informed about the Polytechnic 
-                                 and what the institution expects of you. This handbook serves as 
-                                 a guide to assist students in adjusting to college life in the institution.
+    <div
+        *ngFor="let data of datas.content;">
+        <!-- paragraph -->
+        <div class="body" *ngIf="data.is_paragraph">
+            <div class="paragraph">
+                <div class="para-title">{{ data?.title }}</div>
+                <div class="para-sub-title">{{ data?.sub_title }}</div>
+                <div class="para-body">{{ data?.body }}</div>
             </div>
         </div>
-        <div class="paragraph">
-            <div class="para-title">We wish to welcome you to the Federal
-            </div>
-            <div class="para-sub-title">We wish to welcome you to the</div>
-            <div class="para-body">
-                We wish to welcome you to the Federal Polytechnic, 
-                                Bida. We are aware that for your happiness and success as
-                                 students here, you should be well informed about the Polytechnic 
-                                 and what the institution expects of you. This handbook serves as 
-                                 a guide to assist students in adjusting to college life in the institution.
-            </div>
-        </div>
-        <div class="paragraph">
-            <div class="para-title">We wish to welcome you to the Federal
-            </div>
-            <div class="para-sub-title">We wish to welcome you to the</div>
-            <div class="para-body">
-                We wish to welcome you to the Federal Polytechnic, 
-                                Bida. We are aware that for your happiness and success as
-                                 students here, you should be well informed about the Polytechnic 
-                                 and what the institution expects of you. This handbook serves as 
-                                 a guide to assist students in adjusting to college life in the institution.
-            </div>
-        </div>
-    </div>
 
-    <!-- list -->
-
-    <div class="body">
-        <div class="list">
-            <div class="para-title">We wish to welcome you to the Federal
-            </div>
-            <div class="para-sub-title">We wish to welcome you to the</div>
-            <div class="para-body">
-                We wish to welcome you to the Federal Polytechnic, 
-                                Bida. We are aware that for your happiness and success as
-                                 students here, you should be well informed about the Polytechnic 
-                                 and what the institution expects of you. This handbook serves as 
-                                 a guide to assist students in adjusting to college life in the institution.
-            </div>
-            <div class="list-content">
-                <div class="list-number">1.</div>
-                <div class="list-number-content">Bida. We are aware that for your happiness and success as</div>
-            </div>
-            <div class="list-content">
-                <div class="list-number">2.</div>
-                <div class="list-number-content">Bida. We are aware that for your happiness and success as</div>
-            </div>
-            <div class="list-content">
-                <div class="list-number">iii.</div>
-                <div class="list-number-content">Bida. We are aware that for your happiness and success as</div>
-            </div>
-            <div class="list-content2">
-                <div class="list-number">iii.</div>
-                <div class="list-number-content">Bida. We are aware that for your happiness and success as</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- sub content -->
-
-    <div class="body">
-        <div class="paragraph">
-            <div class="para-title">We wish to welcome you to the Federal
-            </div>
-            <div class="para-sub-title">We wish to welcome you to the</div>
-            <div class="para-body">
-                We wish to welcome you to the Federal Polytechnic, 
-                                Bida. We are aware that for your happiness and success as
-                                 students here, you should be well informed about the Polytechnic 
-                                 and what the institution expects of you. This handbook serves as 
-                                 a guide to assist students in adjusting to college life in the institution.
-            </div>
-            <div class="sub-sub-content">
-                <div class="sub-sub-title">Encourage its staff to imbibe the culture </div>
-                <div class="list-content">
-                    <div class="list-number">1.</div>
-                    <div class="list-number-content">Bida. We are aware that for your happiness and success as</div>
+        <!-- list -->
+        <div class="body" *ngIf="data.is_list">
+            <div class="list">
+                <div class="para-title">{{ data?.title }}</div>
+                <div class="para-sub-title">{{ data?.sub_title }}</div>
+                <div class="para-body">{{ data?.body }}</div>
+                <div *ngIf="!data?.list_contents[0].is_border;">
+                    <div *ngFor="let l of data?.list_contents">
+                        <div class="list-content">
+                            <div class="list-number">{{ l?.number }}</div>
+                            <div class="list-number-content">{{ l?.name }}</div>
+                        </div>
+                    </div>
+                </div>
+                <!--  -->
+                <div *ngIf="data?.list_contents[0].is_border;">
+                    <div class="list-content2">
+                        <div *ngFor="let l of data?.list_contents">
+                            <div class="list-number">{{ l?.number }}</div>
+                            <div class="list-number-content">{{ l?.name }}</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- sub content -->
-
-    <div class="body">
-        <div class="paragraph">
-            <div class="para-title">We wish to welcome you to the Federal
-            </div>
-            <div class="para-sub-title">We wish to welcome you to the</div>
-            <div class="para-body">
-                We wish to welcome you to the Federal Polytechnic, 
-                                Bida. We are aware that for your happiness and success as
-                                 students here, you should be well informed about the Polytechnic 
-                                 and what the institution expects of you. This handbook serves as 
-                                 a guide to assist students in adjusting to college life in the institution.
-            </div>
-            <div class="table-responsive">
-                <table class="table">
-                    <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>First</th>
-                        <th>Last</th>
-                        <th>Handle</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <th>1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th>2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th>3</th>
-                        <td>Larry the Bird</td>
-                        <td>@twitter</td>
-                        <td>@twitter</td>
-                    </tr>
-                    </tbody>
-                </table>
+        <!-- sub content -->
+        <div class="body" *ngIf="data.is_another_content">
+            <div class="paragraph">
+                <div class="para-title">{{ data?.title }}</div>
+                <div class="para-sub-title">{{ data?.sub_title }}</div>
+                <div class="para-body">{{ data?.body }}</div>
+                <div class="sub-sub-content" *ngFor="let sub of data?.list_sub_content">
+                    <div class="sub-sub-title">{{ sub?.name }}</div>
+                    <div class="list-content">
+                        <div class="list-number">{{ sub?.number }}</div>
+                        <div class="list-number-content">{{ sub?.body }}</div>
+                    </div>
+                </div>
             </div>
         </div>
+
+        <!-- table -->
+        <div class="body" *ngIf="data.is_table">
+            <div class="paragraph">
+                <div class="para-title">{{ data?.title }}</div>
+                <div class="para-sub-title">{{ data?.sub_title }}</div>
+                <div class="para-body">{{ data?.body }}</div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th *ngFor="let th of data?.list_table_header;">{{ th?.name }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let thh of data?.list_table_header[0].table_body;">
+                                <th *ngFor="let td of data?.list_table_header.table_body;">{{ td?.name }}</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>fewfew</th>
+                                <th>fewfew</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th><div>fewfew</div></th>
+                                <th><div>fewfew</div></th>
+                            </tr>
+                            <tr>
+                                <th><div>fewfew</div></th>
+                                <th><div>fewfew</div></th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 </div>

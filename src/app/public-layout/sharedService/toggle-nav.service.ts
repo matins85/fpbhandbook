@@ -6,6 +6,8 @@ import { Observable, Subject } from 'rxjs';
 })
 export class ToggleNavService {
   message: string | undefined;
+  message2: string | undefined;
+  message3: string | undefined;
 
   private subject = new Subject<any>();
 
@@ -17,6 +19,24 @@ export class ToggleNavService {
 
   getMessage() {
     return this.message;
+  }
+
+  //
+  setSubMessage(data: any) {
+    this.message2 = data;
+  }
+
+  getSubMessage() {
+    return this.message2;
+  }
+
+  //
+  setContentMessage(data: any) {
+    this.message3 = data;
+  }
+
+  getContentMessage() {
+    return this.message3;
   }
 
   sendClickEvent() {

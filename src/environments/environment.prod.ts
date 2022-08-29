@@ -5,6 +5,7 @@ export const environment = {
 export const BaseUrl = {
   jwt_token: 'MELINA_ACCESS',
   refresh_token: 'MELINA_REFRESH',
-  server: 'http://127.0.0.1:3000/',
+  server: 'https://mtube-rest-api.herokuapp.com/',
   login: '',
+  handbook: 'handbook/api/handbook-list-handbook/'
 };
