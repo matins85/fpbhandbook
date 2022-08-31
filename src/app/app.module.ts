@@ -51,11 +51,13 @@ import { AuthService } from 'src/app/services/auth.service';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IosInstallComponent } from './ios-install/ios-install.component';
 import { HttpService } from './services/http.service';
 import { NetworkAwarePreloadingStrategyService2Service } from './services/network-aware-preloading-strategy.service';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, IosInstallComponent],
+  entryComponents: [IosInstallComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

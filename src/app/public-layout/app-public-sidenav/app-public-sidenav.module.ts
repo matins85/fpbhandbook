@@ -30,7 +30,6 @@ import { PublicSharedModuleModule } from '../public-shared-module/public-shared-
 import { CategoryComponent } from '../category/category.component';
 import { ContentComponent } from '../content/content.component';
 import { DashboardComponent } from '../dashboard/dashboard.component';
-import { IosInstallComponent } from '../ios-install/ios-install.component';
 import { SubCategoryComponent } from '../sub-category/sub-category.component';
 import { AppPublicSidenavComponent } from './app-public-sidenav.component';
 @NgModule({
@@ -41,7 +40,6 @@ import { AppPublicSidenavComponent } from './app-public-sidenav.component';
     CategoryComponent,
     SubCategoryComponent,
     ContentComponent,
-    IosInstallComponent,
   ],
   imports: [
     CommonModule,

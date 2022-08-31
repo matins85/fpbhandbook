@@ -35,7 +35,7 @@
 
     <div class="card-p" #card>
         <div>
-            <div class="card" *ngFor="let data of datas.sub_category|| datas;" (click)="next(data)">
+            <div class="card" *ngFor="let data of datas.sub_category || datas;" (click)="next(data)" [class.disable]="data?.content?.length == 0">
                 <div>
                     <button mat-icon-button class="tablee"><span class="material-icons-round">format_indent_increase</span></button>
                 </div>

@@ -76,6 +76,13 @@ export class SubCategoryComponent implements OnInit {
   next(data: any) {
     this.service.setSubMessage(this.searchData);
     this.service.setContentMessage(data);
+    const next = this.searchData.sub_category.filter((name: any) => {
+      return name.id == data.id + 1;
+    });
+    const prev = this.searchData.sub_category.filter((name: any) => {
+      return name.id == data.id - 1;
+    });
+    this.service.setNextPrevMessage({ next: next, prev: prev });
     this.router.navigate(['/content']);
   }
 

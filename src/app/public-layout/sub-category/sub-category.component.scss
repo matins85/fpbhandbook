@@ -134,6 +134,11 @@
     margin-right: 10px;
   }
 
+  .disable {
+    pointer-events: none;
+    opacity: 0.5;
+  }
+
   .para {
     border: 1px solid #2c1654;
     margin-right: 10px;
