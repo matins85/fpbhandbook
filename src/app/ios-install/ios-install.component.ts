@@ -1,17 +1,29 @@
-import { Component, OnInit } from "@angular/core";
-import { MatSnackBarRef } from "@angular/material/snack-bar";
+import { Component, Inject, OnInit } from '@angular/core';
+import {
+  MAT_BOTTOM_SHEET_DATA,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
 
 @Component({
-  selector: "app-ios-install",
-  templateUrl: "./ios-install.component.html",
-  styleUrls: ["./ios-install.component.scss"]
+  selector: 'app-ios-install',
+  templateUrl: './ios-install.component.html',
+  styleUrls: ['./ios-install.component.scss'],
 })
 export class IosInstallComponent implements OnInit {
-  constructor(private snackBarRef: MatSnackBarRef<IosInstallComponent>) {}
+  constructor(
+    @Inject(MAT_BOTTOM_SHEET_DATA)
+    public data: { mobileType: 'ios' | 'android'; promptEvent?: any },
+    private bottomSheetRef: MatBottomSheetRef<IosInstallComponent>
+  ) {}
 
   ngOnInit() {}
 
-  close() {
-    this.snackBarRef.dismiss();
+  public installPwa(): void {
+    this.data.promptEvent.prompt();
+    this.close();
+  }
+
+  public close() {
+    this.bottomSheetRef.dismiss();
   }
 }

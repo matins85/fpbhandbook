@@ -2,6 +2,7 @@ import { ClipboardModule } from '@angular/cdk/clipboard';
 import { DatePipe } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import {
+  APP_INITIALIZER,
   ModuleWithProviders,
   NgModule,
   Optional,
@@ -54,6 +55,10 @@ import { AppComponent } from './app.component';
 import { IosInstallComponent } from './ios-install/ios-install.component';
 import { HttpService } from './services/http.service';
 import { NetworkAwarePreloadingStrategyService2Service } from './services/network-aware-preloading-strategy.service';
+import { PwaService } from './services/pwa.service';
+
+const initializer = (pwaService: PwaService) => () =>
+  pwaService.initPwaPrompt();
 
 @NgModule({
   declarations: [AppComponent, IosInstallComponent],
@@ -116,6 +121,12 @@ import { NetworkAwarePreloadingStrategyService2Service } from './services/networ
     MatNativeDateModule,
     NetworkAwarePreloadingStrategyService2Service,
     DatePipe,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializer,
+      deps: [PwaService],
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })
