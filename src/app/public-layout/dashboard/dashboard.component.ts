@@ -10,8 +10,9 @@ import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
-import { HttpService } from 'src/app/services/http.service';
-import { BaseUrl } from 'src/environments/environment';
+// import { HttpService } from 'src/app/services/http.service';
+// import { BaseUrl } from 'src/environments/environment';
+import { HandbookData } from '../shared/form';
 import { ToggleNavService } from '../sharedService/toggle-nav.service';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -39,9 +40,9 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: ToggleNavService,
-    private httpService: HttpService
-  ) {}
+    private service: ToggleNavService
+  ) // private httpService: HttpService
+  {}
 
   initAnimations(): void {
     gsap.from(this.card.nativeElement.children, {
@@ -75,13 +76,14 @@ export class DashboardComponent implements OnInit {
   }
 
   listData() {
-    if (!this.service.getMessage()) {
-      this.httpService.getSingleNoAuth(BaseUrl.handbook).subscribe((data: any) => {
-        this.service.setMessage(data);
-        console.log(data);
-      });
-    } else {
-    }
+    this.service.setMessage(HandbookData);
+    // if (!this.service.getMessage()) {
+    //   this.httpService.getSingleNoAuth(BaseUrl.handbook).subscribe((data: any) => {
+    //     this.service.setMessage(data);
+    //     console.log(data);
+    //   });
+    // } else {
+    // }
   }
 
   next() {

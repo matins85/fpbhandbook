@@ -48,6 +48,7 @@
                 [class.italic]="data.is_italic == true" [class.center]="data.is_center == true"
                 [class.bold]="datas.is_bold == true">{{ data?.sub_title }}</div>
                 <div class="para-body">{{ data?.body }}</div>
+
                 <div *ngIf="!data?.list_contents[0].is_border;">
                     <div *ngFor="let l of data?.list_contents;">
                         <div class="list-content">
@@ -60,6 +61,7 @@
                         </div>
                     </div>
                 </div>
+                
                 <!--  -->
                 <div *ngIf="data?.list_contents[0].is_border;">
                     <div class="list-content2">

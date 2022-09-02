@@ -14,7 +14,7 @@
                     <img src="assets/images/hand.png" alt="">
                 </div>
                 <div class="multiple_text">
-                    <div class="multiple_first">FPBSIH</div>
+                    <div class="multiple_first">Student Handbook</div>
                     <div class="multiple_second">{{ limit(datas2?.chapter)}}</div>
                     <div class="multiple_third"><button mat-button>HANDBOOK</button></div>
                 </div>
@@ -37,33 +37,17 @@
         <div>
             <div class="card" *ngFor="let data of datas.sub_category || datas;" (click)="next(data)" [class.disable]="data?.content?.length == 0">
                 <div>
-                    <button mat-icon-button class="tablee"><span class="material-icons-round">format_indent_increase</span></button>
+                    <button mat-icon-button [class.tablee]="data?.content[0]?.is_table == true"
+                        [class.para]="data?.content[0]?.is_paragraph == true"
+                        [class.list]="data?.content[0]?.is_list == true"
+                        [class.sub-content]="data?.content[0]?.is_another_content == true">
+                        <span class="material-icons-round">format_indent_increase</span>
+                    </button>
                 </div>
                 <div [class.bold]="data.is_bold == true" [class.capitalize]="data.is_capital_letter == true"
                 [class.italic]="data.is_italic == true">{{ data?.name }}</div>
             </div>
         </div>
-        <!-- 
-        <div class="card" (click)="next()">
-            <div>
-                <button mat-icon-button class="list"><span class="material-icons-round">format_list_bulleted</span></button>
-            </div>
-            <div>Section A: Polytechnic Administration</div>
-        </div>
-
-        <div class="card" (click)="next()">
-            <div>
-                <button mat-icon-button class="sub-content"><i class="fa fa-table fa-lg" aria-hidden="true"></i></button>
-            </div>
-            <div>Section A: Polytechnic Administration</div>
-        </div>
-
-        <div class="card" (click)="next()">
-            <div>
-                <button mat-icon-button class="para"><span class="material-icons-round">reorder</span></button>
-            </div>
-            <div>Section A: Polytechnic Administration</div>
-        </div> -->
     </div>
 
 </div>

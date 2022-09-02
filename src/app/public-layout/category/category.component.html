@@ -13,7 +13,7 @@
                     <img src="assets/images/hand.png" alt="">
                 </div>
                 <div class="multiple_text">
-                    <div class="multiple_first">FPBSIH</div>
+                    <div class="multiple_first">Student Handbook</div>
                     <div class="multiple_second">Table of content</div>
                     <div class="multiple_third">
                         <button mat-button>HANDBOOK</button>
@@ -45,7 +45,7 @@
             <div class="card" *ngFor="let data of datas;" (click)="next(data)">
                 <div>
                     <button mat-icon-button>
-                        <span class="material-icons-round">category</span>
+                        <span class="material-icons-round">article</span>
                     </button>
                 </div>
                 <div [class.bold]="data.is_bold == true" [class.capitalize]="data.is_capital_letter == true"
