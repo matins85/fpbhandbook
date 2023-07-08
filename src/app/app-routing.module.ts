@@ -10,6 +10,7 @@ const routes: Routes = [
         './public-layout/app-public-sidenav/app-public-sidenav.module'
       ).then((m) => m.AppPublicSidenavModule),
   },
+  
 ];
 
 @NgModule({

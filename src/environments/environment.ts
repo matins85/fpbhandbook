@@ -3,15 +3,15 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
 };
 
 export const BaseUrl = {
   jwt_token: 'MELINA_ACCESS',
   refresh_token: 'MELINA_REFRESH',
-  server: 'https://mtube-rest-api.herokuapp.com/',
+  server: 'http://127.0.0.1:3000/',
   login: '',
-  handbook: 'handbook/api/handbook-list-handbook/'
+  handbook: 'handbook/api/handbook-list-handbook/',
 };
 
 /*

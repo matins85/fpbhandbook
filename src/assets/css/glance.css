@@ -1,0 +1,68 @@
+/* devanagari */
+@font-face {
+  font-family: "Glance Sans";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/css/Glance/Fontspring-DEMO-glancesans-thin.otf")
+    format("truetype");
+}
+/* devanagari */
+@font-face {
+  font-family: "Glance Sans";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/css/Glance/Fontspring-DEMO-glancesans-light.otf")
+    format("truetype");
+}
+/* devanagari */
+@font-face {
+  font-family: "Glance Sans";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/css/Glance/Fontspring-DEMO-glancesans-regular.otf")
+    format("truetype");
+}
+
+/* devanagari */
+@font-face {
+  font-family: "Glance Sans";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/css/Glance/Fontspring-DEMO-glancesans-medium.otf")
+    format("truetype");
+}
+
+/* devanagari */
+@font-face {
+  font-family: "Glance Sans";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/css/Glance/Fontspring-DEMO-glancesans-bold.otf")
+    format("truetype");
+}
+
+/* devanagari */
+@font-face {
+  font-family: "Glance Sans";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/css/Glance/Fontspring-DEMO-glancesans-black.otf")
+    format("truetype");
+}
+
+/* devanagari */
+@font-face {
+    font-family: "Glance Sans";
+    font-style: normal;
+    font-weight: 900;
+    font-display: swap;
+    src: url("/assets/css/Glance/Fontspring-DEMO-glancesans-black.otf")
+      format("truetype");
+  }
+  

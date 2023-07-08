@@ -5,14 +5,12 @@ import {
   ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
-// import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
-// import { HttpService } from 'src/app/services/http.service';
-// import { BaseUrl } from 'src/environments/environment';
-import { HandbookData } from '../shared/form';
-import { ToggleNavService } from '../sharedService/toggle-nav.service';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { HttpService } from 'src/app/services/http.service';
+import { BaseUrl } from 'src/environments/environment';
+import { ToggleNavService } from '../sharedService/toggle-nav.service';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,9 +34,9 @@ export class CategoryComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: ToggleNavService // private httpService: HttpService,
-  ) // private snackBar: MatSnackBar
-  {
+    private service: ToggleNavService,
+    private httpService: HttpService
+  ) {
     if (!this.service.getMessage()) {
       this.listData();
     } else {
@@ -59,7 +57,6 @@ export class CategoryComponent implements OnInit {
   modelChange(search: any) {
     const data = this.searchData?.filter((data: any) => {
       return data?.chapter.toLowerCase().includes(search.toLowerCase());
-      // data.name.toLowerCase().startsWith(search.toLowerCase()) ||
     });
     this.datas = data;
   }
@@ -83,32 +80,13 @@ export class CategoryComponent implements OnInit {
 
   listData() {
     this.loading = true;
-    this.datas = HandbookData;
-    this.searchData = HandbookData;
-    console.log(HandbookData);
-    this.service.setMessage(HandbookData);
-    this.loading = false;
-    // if (this.datas) {
-    // } else {
-    //   this.httpService.getSingleNoAuth(BaseUrl.handbook).subscribe(
-    //     (data: any) => {
-    //       this.datas = data;
-    //       this.searchData = data;
-    //       console.log(data);
-    //       this.service.setMessage(data);
-    //       this.loading = false;
-    //     },
-    //     (err) => {
-    //       this.loading = false;
-    //       this.snackBar.open('Please refresh page', 'x', {
-    //         duration: 3000,
-    //         panelClass: 'warning',
-    //         horizontalPosition: 'center',
-    //         verticalPosition: 'top',
-    //       });
-    //     }
-    //   );
-    // }
+    this.httpService.getAuthSingle(BaseUrl.handbook).subscribe((data: any) => {
+      this.datas = data;
+      this.searchData = data;
+      // console.log(data);
+      this.service.setMessage(data);
+      this.loading = false;
+    });
   }
 
   ngOnInit(): void {

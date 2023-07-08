@@ -19,7 +19,10 @@
 
   .table {
     text-transform: capitalize;
-    font: normal normal normal 25px/30px Inter;
+    // font: normal normal normal 25px/30px Inter;
+    font-family: "Glance Sans";
+    font-style: normal;
+    font-size: 25px;
     font-weight: 500;
   }
 
@@ -61,7 +64,10 @@
   }
 
   .multiple_first {
-    font: normal normal normal 25px/30px Inter;
+    // font: normal normal normal 25px/30px Inter;
+    font-family: "Effra";
+    font-size: 25px;
+    font-style: normal;
     font-weight: 500;
     font-size: 15px;
     line-height: 15px;
@@ -70,7 +76,10 @@
   }
 
   .multiple_second {
-    font: normal normal normal 13px/19px Inter;
+    // font: normal normal normal 13px/19px Inter;
+    font-family: "Effra";
+    font-size: 13px;
+    font-style: normal;
     font-weight: 300;
     line-height: 8px;
     color: black;
@@ -81,7 +90,11 @@
   .multiple_third {
     background: rgba(44, 22, 84, 0.3);
     border-radius: 5px;
-    font: normal normal normal 14px/19px JetBrains Mono;
+    // font: normal normal normal 14px/19px JetBrains Mono;
+    font-family: "Effra";
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
     color: #ffffff;
     text-align: center;
     width: fit-content;
@@ -109,7 +122,10 @@
     display: flex;
     justify-content: left;
     align-items: center;
-    font: normal normal normal 14px/19px JetBrains Mono;
+    // font: normal normal normal 14px/19px JetBrains Mono;
+    font-family: "Effra";
+    font-size: 14px;
+    font-style: normal;
     font-weight: 500;
     vertical-align: middle;
     color: #2c1654;
@@ -159,7 +175,11 @@
       box-sizing: border-box;
       height: 40px;
       width: 100%;
-      font: normal normal normal 15px/21px JetBrains Mono;
+      // font: normal normal normal 15px/21px JetBrains Mono;
+      font-family: "Effra";
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 500;
       letter-spacing: 0px;
       color: #2c1654;
       padding-left: 15px;

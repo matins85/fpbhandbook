@@ -1,0 +1,51 @@
+/* devanagari */
+@font-face {
+  font-family: "Effra";
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: url("/assets/css/Effra/Effra_Std_Lt.otf") format("truetype");
+}
+/* devanagari */
+@font-face {
+  font-family: "Effra";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("/assets/css/Effra/Effra_Std_Rg.otf") format("truetype");
+}
+/* devanagari */
+@font-face {
+  font-family: "Effra";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("/assets/css/Effra/Effra_Std_Md.otf") format("truetype");
+}
+
+/* devanagari */
+@font-face {
+  font-family: "Effra";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("/assets/css/Effra/Effra_Std_Md.otf") format("truetype");
+}
+
+/* devanagari */
+@font-face {
+  font-family: "Effra";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("/assets/css/Effra/Effra_Std_Bd.otf") format("truetype");
+}
+
+/* devanagari */
+@font-face {
+  font-family: "Effra";
+  font-style: normal;
+  font-weight: 800;
+  font-display: swap;
+  src: url("/assets/css/Effra/Effra_Std_He.otf") format("truetype");
+}

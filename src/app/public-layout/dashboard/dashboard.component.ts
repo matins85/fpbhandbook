@@ -10,9 +10,7 @@ import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Subscription } from 'rxjs';
-// import { HttpService } from 'src/app/services/http.service';
-// import { BaseUrl } from 'src/environments/environment';
-import { HandbookData } from '../shared/form';
+import { HandbookData } from '../shared/handbook';
 import { ToggleNavService } from '../sharedService/toggle-nav.service';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -24,6 +22,7 @@ gsap.registerPlugin(ScrollTrigger);
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  // Gsap animation
   @ViewChild('card', { static: true })
   card!: ElementRef<HTMLDivElement>;
 
@@ -41,10 +40,11 @@ export class DashboardComponent implements OnInit {
   constructor(
     private router: Router,
     private service: ToggleNavService
-  ) // private httpService: HttpService
-  {}
+  ) {}
 
+  // initialize gsap animation
   initAnimations(): void {
+    // card
     gsap.from(this.card.nativeElement.children, {
       delay: 0.5,
       duration: 0.5,
@@ -52,6 +52,7 @@ export class DashboardComponent implements OnInit {
       opacity: 0,
       stagger: 0.15,
     });
+    // card2
     gsap.from(this.card2.nativeElement.children, {
       delay: 0.5,
       duration: 0.5,
@@ -59,6 +60,7 @@ export class DashboardComponent implements OnInit {
       opacity: 0,
       stagger: 0.15,
     });
+    // card3
     gsap.from(this.card3.nativeElement.children, {
       delay: 0.5,
       duration: 0.5,
@@ -66,6 +68,7 @@ export class DashboardComponent implements OnInit {
       opacity: 0,
       stagger: 0.15,
     });
+    // card4
     gsap.from(this.card4.nativeElement.children, {
       delay: 0.5,
       duration: 0.5,
@@ -75,23 +78,17 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  listData() {
+  saveData() {
     this.service.setMessage(HandbookData);
-    // if (!this.service.getMessage()) {
-    //   this.httpService.getSingleNoAuth(BaseUrl.handbook).subscribe((data: any) => {
-    //     this.service.setMessage(data);
-    //     console.log(data);
-    //   });
-    // } else {
-    // }
   }
 
+  // goto next page (category page)
   next() {
     this.router.navigate(['/category']);
   }
 
   ngOnInit(): void {
     this.initAnimations();
-    this.listData();
+    this.saveData();
   }
 }

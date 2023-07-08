@@ -11,7 +11,7 @@ import { ToggleNavService } from '../sharedService/toggle-nav.service';
 export class ContentComponent implements OnInit {
   datas: any;
   previousData: any;
-  table: any;
+  table: any[] = [];
   nextData: any;
   prevData: any;
 
@@ -33,81 +33,51 @@ export class ContentComponent implements OnInit {
       let table = this.datas?.content?.map((name: any) => {
         return name?.list_table_header;
       });
-      if (table[0]?.length !== 0) {
-        let table_body: any[] = table[0]?.map((name: any) => {
-          return name?.table_body;
-        });
-        if (table_body !== [] || table_body !== undefined) {
-          let table_body2: any[] = table_body[0]?.map(
-            (name3: any, index2: number) => {
-              return table_body.map((name4: any) => {
-                return name4[index2];
-              });
-            }
-          );
-          this.table = table_body2;
-          console.log(table_body2);
-        }
-      }
-      //
-      if (table[0]?.length == 0 && table[1]?.length > 0) {
-        let table_body: any[] = table[1]?.map((name: any) => {
-          return name?.table_body;
-        });
-        if (table_body !== [] || table_body !== undefined) {
-          let table_body2: any[] = table_body[0]?.map(
-            (name3: any, index2: number) => {
-              return table_body.map((name4: any) => {
-                return name4[index2];
-              });
-            }
-          );
-          this.table = table_body2;
-          console.log(table_body2);
-        }
-      }
-      //
-      if (
-        table[0]?.length == 0 &&
-        table[1]?.length == 0 &&
-        table[2]?.length > 0
-      ) {
-        let table_body: any[] = table[2]?.map((name: any) => {
-          return name?.table_body;
-        });
-        if (table_body !== [] || table_body !== undefined) {
-          let table_body2: any[] = table_body[0]?.map(
-            (name3: any, index2: number) => {
-              return table_body.map((name4: any) => {
-                return name4[index2];
-              });
-            }
-          );
-          this.table = table_body2;
-          console.log(table_body2);
+      for (let g of table) {
+        if (g?.length !== 0) {
+          const table_body = g?.map((name: any) => name?.table_body);
+
+          if (table_body) {
+            let table_body2: any[] = table_body[0]?.map(
+              (name3: any, index2: number) => {
+                return table_body.map((name4: any) => {
+                  return name4[index2];
+                });
+              }
+            );
+            this.table.push(table_body2);
+          }
+        } else {
+          this.table.push([]);
         }
       }
     }
   }
 
+  // goto previous page function (sub-category page)
   back() {
     this.service.setSubMessage(this.previousData);
     this.router.navigate(['/sub-category']);
   }
 
+  // goto next content
   next(data: any) {
     this.datas = data;
+    // get next content data
     const next = this.previousData.sub_category.filter((name: any) => {
       return name.id == data.id + 1;
     });
+    // get previous data
     const prev = this.previousData.sub_category.filter((name: any) => {
       return name.id == data.id - 1;
     });
     this.nextData = next[0];
     this.prevData = prev[0];
+    this.table = [];
     this.tableData();
   }
 
+  // limit text length function
   limit(title: any, limit = 11) {
     if (title === undefined) {
       return '';

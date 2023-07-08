@@ -44,6 +44,7 @@ export class SubCategoryComponent implements OnInit {
     }
   }
 
+  // initialize gsap animation
   initAnimations(): void {
     gsap.from(this.card.nativeElement.children, {
       delay: 0.5,
@@ -68,11 +69,13 @@ export class SubCategoryComponent implements OnInit {
     });
   }
 
+  // goto previous page function (category)
   back() {
     this.service.setSubMessage(this.datas);
     this.router.navigate(['/category']);
   }
 
+  // goto next page function (content)
   next(data: any) {
     this.service.setSubMessage(this.searchData);
     this.service.setContentMessage(data);
@@ -86,6 +89,7 @@ export class SubCategoryComponent implements OnInit {
     this.router.navigate(['/content']);
   }
 
+  // search function
   modelChange2(search: any) {
     const data = this.searchData?.sub_category.filter((data: any) => {
       return data?.name.toLowerCase().includes(search.toLowerCase());
@@ -93,6 +97,7 @@ export class SubCategoryComponent implements OnInit {
     this.datas = data;
   }
 
+  // limit text length function
   limit(title: any, limit = 14) {
     if (title === undefined) {
       return '';
