@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { HttpService } from 'src/app/services/http.service';
-import { BaseUrl } from 'src/environments/environment';
+import { HandbookData } from '../shared/handbook';
 import { ToggleNavService } from '../sharedService/toggle-nav.service';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,12 +37,15 @@ export class CategoryComponent implements OnInit {
     private service: ToggleNavService,
     private httpService: HttpService
   ) {
-    if (!this.service.getMessage()) {
-      this.listData();
-    } else {
-      this.datas = this.service.getMessage();
-      this.searchData = this.service.getMessage();
-    }
+    // if (!this.service.getMessage()) {
+    //   this.listData();
+    // } else {
+    // this.datas = this.service.getMessage();
+    // this.searchData = this.service.getMessage();
+    this.datas = HandbookData;
+    this.searchData = HandbookData;
+    this.service.setMessage(HandbookData);
+    // }
   }
 
   back() {
@@ -80,13 +83,15 @@ export class CategoryComponent implements OnInit {
 
   listData() {
     this.loading = true;
-    this.httpService.getAuthSingle(BaseUrl.handbook).subscribe((data: any) => {
-      this.datas = data;
-      this.searchData = data;
-      // console.log(data);
-      this.service.setMessage(data);
-      this.loading = false;
-    });
+    // this.httpService.getAuthSingle(BaseUrl.handbook).subscribe((data: any) => {
+    //   this.datas = data;
+    //   this.searchData = data;
+    //   console.log(data);
+    this.datas = HandbookData;
+    this.searchData = HandbookData;
+    this.service.setMessage(HandbookData);
+    this.loading = false;
+    // });
   }
 
   ngOnInit(): void {
